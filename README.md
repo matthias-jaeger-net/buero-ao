@@ -2,4 +2,4 @@
 Experimental webpage for an austrian graphic design studio
 
 ## Development tasks
--[] Test 
+*[] Test 
