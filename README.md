@@ -6,6 +6,8 @@ Experimental webpage for an austrian graphic design studio
 - [x] Add boilerplate html
 - [x] Create sections
 - [x] Add lorem ipsum
+- [x] Add large example type
+
 * Create colorset datastruct
 * Randomized gradient
 * Middle section is a p5 canvas
