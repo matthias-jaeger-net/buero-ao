@@ -1,16 +1,11 @@
 # buero-ao
 Experimental webpage for an austrian graphic design studio
 
-## Structure
-* src
-* * hmtl
-* * sass>css
-* * js 
-
-## Development tasks
-* Setup repo
-* Add boilerplate html
-* Create sections
+## !TODO
+- [x] Setup repo
+- [x] Add boilerplate html
+- [x] Create sections
+- [x] Add lorem ipsum
 * Create colorset datastruct
 * Randomized gradient
 * Middle section is a p5 canvas
@@ -25,5 +20,4 @@ Experimental webpage for an austrian graphic design studio
 
 ## Research Links
 * 
-
 
