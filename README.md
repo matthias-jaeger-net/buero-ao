@@ -1,12 +1,6 @@
 # buero-ao
 Experimental webpage for an austrian graphic design studio
 
-## Structure
-* src
-* * hmtl
-* * sass>css
-* * js 
-
 ## !TODO
 - [x] Setup repo
 - [x] Add boilerplate html
