@@ -1,36 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
-    <title>buero A und O</title>
+    <script src="js/libs/blotter.min.js"></script>
+    <script src="js/libs/SlidingDoorMaterial.js"></script>
+    <style>
+        @font-face {
+            font-family: 'BueroAO';
+            src: url('fonts/BueroAO.woff');
+        }
+
+        body {
+            font-family: 'BueroAO', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
+    <script>
+        var text = new Blotter.Text("A", {
+            family: "BueroAO",
+            size: 300,
+            fill: "#000000"
+        });
 
-    <div class="wrapper">
-        <section id="sTop" class="">Top</section>
-        <section id="sSocial">Links</section>
-        <section id="sLogo"><img src="svg/AO_LOGO_WEB.svg" alt=""></section>
-        <section id="sCanvas"></section>
-        <section id="sEpos">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sequi, pariatur, error quaerat
-                deserunt accusamus ipsam doloremque consequuntur delectus non qui eaque officia nobis iure fuga
-                asperiores accusantium quo fugiat!
-            </p>
-        </section>
-        <section id="sBottom">Bottom</section>
-    </div>
+        var material = new Blotter.SlidingDoorMaterial();
 
-    <script src="js/index.js"></script>
+        var blotter = new Blotter(material, {
+            texts: text
+        });
 
+        var scope = blotter.forText(text);
+
+        scope.appendTo(document.body);
+    </script>
+
+    A
 </body>
 
 </html>
