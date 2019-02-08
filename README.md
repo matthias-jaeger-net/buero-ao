@@ -7,11 +7,12 @@ Experimental webpage for an austrian graphic design studio
 - [x] Create sections
 - [x] Add lorem ipsum
 - [x] Add large example type
+- [x] Create colorset datastruct
+- [x] Randomized gradient
+- [ ] Middle section is a p5 canvas / Blotter.js 
+- [x] Load a custom svg logo
 
-* Create colorset datastruct
-* Randomized gradient
-* Middle section is a p5 canvas
-* Load a custom svg logo
+## Wishlist
 * Simple interactive particle simulation with the vector points
 * Add scroll script with the conditional algorithms for infinte scrolling
 * Set up a test deployment 
