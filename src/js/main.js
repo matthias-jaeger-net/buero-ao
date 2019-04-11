@@ -11,59 +11,73 @@
  * Graz, 2019
  */
 
-// DOM ELEMEMENTS
-var logos;
-var logo;
-var canvas;
+/** Constants */
+var LOGOFULL = 500;
+var LOGOHALF = LOGOFULL * 0.5;
+var LOGONUM = 10;
 
-// PROGRAM VARIABLES
-var midpoint;
-var direction;
-var mousepos;
+/** Global dom elements */
+var logos, logo, canvas;
 
-/** Stores the projected points */
+/** Vectors */
+var midpoint, direction, mousepos;
+
+/** Projected elements */
 var projection = [];
 
-// EXECUTES ONCE AND BEFORE DRAW
+/** setup executes first  */
 function setup() {
+  // Full-width background canvas
   canvas = createCanvas(windowWidth, windowHeight);
+
+  // Grab container element and set parenting
   logos = select('#logos');
   canvas.parent(logos);
 
-  for (var i = 0; i < 10; i++) {
+  // Create logo divs inside of #logos
+  for (var i = 0; i < LOGONUM; i++) {
     logo = createElement('div');
     logo.id('logo' + i);
     logo.class('logo');
     logo.parent(logos);
-    logo.position(windowWidth / 2 - 250, windowHeight / 2 - 250);
+    logo.position(width / 2 - LOGOHALF, height / 2 - LOGOHALF);
     projection.push(logo);
   }
 
-  // for (var i = 0; i < 10; i++) {
-  //   var t = select('#logo' + i);
-  //   t.position(random(windowWidth), random(windowHeight));
-  // }
-
+  /** Initialize vectors */
   midpoint = createVector(width * 0.5, height * 0.5);
   direction = createVector(0.0, 0.0);
   mousepos = createVector(0.0, 0.0);
 }
 
-// EXECUTES EVERY FRAME
+/** draw executes each frame */
 function draw() {
-  background("plum");
-  if (mouseX != 0) {
+  // Only If the window is in focus ...
+  if (mouseX != 0 && mouseY != 0) {
     mousepos.set(mouseX, mouseY);
+    // Normalizing the result means a slow approch to the endpoint
     direction = mousepos.sub(midpoint).normalize();
-
-    point(midpoint.x, midpoint.y);
-
     midpoint.add(direction);
-    line(width / 2, height / 2, midpoint.x, midpoint.y)
+    createProjection(width / 2, height / 2, midpoint.x, midpoint.y)
+  }
+}
 
-    for (var i = 0; i < projection.length; i++) {
-      var t = select('#logo' + i);
-      t.position((midpoint.x - 250), midpoint.y - 250);
-    }
+/** Custom function that handles the projection effect */
+function createProjection(x1, y1, x2, y2) {
+  // Creating two vector objects
+  var startVector = createVector(x1, y1);
+  var endVector = createVector(x2, y2);
+  // Get the direction from strat to end
+  var dirVector = endVector.copy().sub(startVector);
+  // Save the magnitude = length of the distance
+  var magnitude = dirVector.mag();
+  // Reduce to unit vector of length 1, then divide the 10 logos in
+  dirVector.normalize();
+  dirVector.mult(magnitude / 10);
+  // This makes all no sense but is working nicely
+  for (var i = 0; i < projection.length; i++) {
+    startVector.add(dirVector);
+    var tempLogo = select('#logo' + i);
+    tempLogo.position((startVector.x - LOGOHALF), startVector.y - LOGOHALF);
   }
 }
