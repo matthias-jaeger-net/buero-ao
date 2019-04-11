@@ -1,41 +1,18 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <script src="js/libs/blotter.min.js"></script>
-    <script src="js/libs/SlidingDoorMaterial.js"></script>
-    <style>
-        @font-face {
-            font-family: 'BueroAO';
-            src: url('fonts/BueroAO.woff');
-        }
-
-        body {
-            font-family: 'BueroAO', sans-serif;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>buero A/O</title>
+    <link rel="stylesheet" href="css/reset.css">
 </head>
 
 <body>
-    <script>
-        var text = new Blotter.Text("A", {
-            family: "BueroAO",
-            size: 300,
-            fill: "#000000"
-        });
-
-        var material = new Blotter.SlidingDoorMaterial();
-
-        var blotter = new Blotter(material, {
-            texts: text
-        });
-
-        var scope = blotter.forText(text);
-
-        scope.appendTo(document.body);
-    </script>
-
-    A
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
